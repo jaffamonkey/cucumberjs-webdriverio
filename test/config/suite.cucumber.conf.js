@@ -9,6 +9,7 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    services: ['selenium-standalone'],
     //
     // ============
     // Capabilities
@@ -29,77 +30,77 @@ exports.config = {
 
     capabilities: [
 
-          {
-              browserName: 'chrome',
-              // platform: 'Windows 10',
-              // version: '50.0',
-              maxInstances: '1',
-          },
-          //
-          // {
-          //     browserName: 'firefox',
-          //     // platform: 'Windows 10',
-          //     // version: '50.0',
-          //     maxInstances: '5',
-          // },
+        {
+            browserName: 'chrome',
+            // platform: 'Windows 10',
+            // version: '50.0',
+            maxInstances: '1',
+        },
+        //
+        // {
+        //     browserName: 'firefox',
+        //     // platform: 'Windows 10',
+        //     // version: '50.0',
+        //     maxInstances: '5',
+        // },
 
-          // {
-          //     browserName: 'safari',
-          //     // platform: 'Windows 10',
-          //     // version: '50.0',
-          //     maxInstances: '5',
-          // },
-          //
-          // {
-          //     browserName: 'internet explorer',
-          //     platform: '',
-          //     version: '',
-          //     acceptUntrustedCertificates: true,
-          //     ignoreProtectedModeSettings: true,    //only applicable to IE browser
-          //     ignoreZoomSetting: true,              //only applicable to IE browser
-          //     ensureCleanSession: true,
-          //     maxInstances: '5',
-          //     // specs: [
-          //     //     './test/specs/*.js'
-          //     // ],
-          // },
+        // {
+        //     browserName: 'safari',
+        //     // platform: 'Windows 10',
+        //     // version: '50.0',
+        //     maxInstances: '5',
+        // },
+        //
+        // {
+        //     browserName: 'internet explorer',
+        //     platform: '',
+        //     version: '',
+        //     acceptUntrustedCertificates: true,
+        //     ignoreProtectedModeSettings: true,    //only applicable to IE browser
+        //     ignoreZoomSetting: true,              //only applicable to IE browser
+        //     ensureCleanSession: true,
+        //     maxInstances: '5',
+        //     // specs: [
+        //     //     './test/specs/*.js'
+        //     // ],
+        // },
 
-          // {
-          //     browserName: 'phantomjs',
-          //     platform: '',
-          //     version: '',
-          //     maxInstances: '5',
-          //
-          //     //  specs: [
-          //     //    './test/specs/*.js'
-          //     //  ],
-          // },
-          //
-          // {
-          //     browserName: 'chrome',
-          //     chromeOptions: {
-          //       // run in headless mode
-          //       args: ['--headless'],
-          //       //binary:   '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
-          //       binary:   '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'  //for OS X
-          //       //binary:   '/Program Files (x86)/Google/Chrome/Application/chrome.exe'     //for windows7
-          //     },
-          //     platform: '',
-          //     version: '',
-          //     maxInstances: '5',
-          //     // specs: [
-          //     //     './test/specs/*.js'
-          //     // ],
-          // },
-          //
-          // {
-          //     browserName: 'firefox',
-          //     // platform: 'Windows 10',
-          //     // version: '50.0',
-          //     maxInstances: '5',
-          //     // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
-          //     "moz:firefoxOptions": { args: ['-headless'] }
-          // },
+        // {
+        //     browserName: 'phantomjs',
+        //     platform: '',
+        //     version: '',
+        //     maxInstances: '5',
+        //
+        //     //  specs: [
+        //     //    './test/specs/*.js'
+        //     //  ],
+        // },
+        //
+        // {
+        //     browserName: 'chrome',
+        //     chromeOptions: {
+        //       // run in headless mode
+        //       args: ['--headless'],
+        //       //binary:   '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
+        //       binary:   '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'  //for OS X
+        //       //binary:   '/Program Files (x86)/Google/Chrome/Application/chrome.exe'     //for windows7
+        //     },
+        //     platform: '',
+        //     version: '',
+        //     maxInstances: '5',
+        //     // specs: [
+        //     //     './test/specs/*.js'
+        //     // ],
+        // },
+        //
+        // {
+        //     browserName: 'firefox',
+        //     // platform: 'Windows 10',
+        //     // version: '50.0',
+        //     maxInstances: '5',
+        //     // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
+        //     "moz:firefoxOptions": { args: ['-headless'] }
+        // },
     ],
     //
     // ===================
@@ -129,13 +130,21 @@ exports.config = {
     //services: ['selenium-standalone', 'phantomjs'],
     //
     framework: 'cucumber',
-    reporters: ['spec', 'junit','allure', 'json'],
-
+    reporters: ['spec', 'junit', 'allure', 'json'],
     reporterOptions: {
-        junit:  {outputDir: './test/reports/junit-results/'},
-        allure: {outputDir: './test/reports/allure-results/'},
-        json:   {outputDir: './test/reports/json-results/'}
+        junit: {
+            outputDir: './test/reports/junit-results/'
+        },
+        allure: {
+            outputDir: './test/reports/allure-results/'
+        },
+        json: {
+            outputDir: './test/reports/json-results/',
+            filename: 'report',
+            combined: true,
+        }
     },
+
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
@@ -150,7 +159,6 @@ exports.config = {
         snippets: true,     // <boolean> hide step definition snippets for pending steps
         format: ['pretty'], // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
         colors: true,       // <boolean> disable colors in formatter output
-        snippets: false,    // <boolean> hide step definition snippets for pending steps
         source: false,      // <boolean> hide source uris
         profile: [],        // <string[]> (name) specify the profile to use
         strict: true,       // <boolean> fail if there are any undefined or pending steps
@@ -171,14 +179,14 @@ exports.config = {
     //
     // Gets executed before test execution begins. At this point you can access all global
     // variables, such as `browser`. It is the perfect place to define custom commands.
-    before: function() {
-      /**
-       * Setup the Chai assertion framework
-       */
-      const chai    = require('chai');
-      global.expect = chai.expect;
-      global.assert = chai.assert;
-      global.should = chai.should();
+    before: function () {
+        /**
+         * Setup the Chai assertion framework
+         */
+        const chai = require('chai');
+        global.expect = chai.expect;
+        global.assert = chai.assert;
+        global.should = chai.should();
     },
     //
     // after: function (capabilities, specs) {

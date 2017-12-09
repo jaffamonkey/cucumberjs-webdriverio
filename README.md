@@ -164,3 +164,24 @@ Industry is moving towards Node.js / JavaScript, Angularjs, Full-Stack world. We
 ## Licensing
 
 MIT
+
+Ensure you have Java JDK installed (I have v9 running)
+Ensure you have Xcode installed
+Set webdriverio version to 4.9.0+ in package.json
+Set node version at least 6.10.2
+
+To switch node versions, do the following from Terminal:
+
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n 6.10.2
+Then run the following from Terminal.
+
+cd /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home
+sudo ln -s ./ jre`
+Then run npm install from repo directory, and let me know how you get on with that. I have some more testing to do, with product versions, but just outlining the current state where I know it works
+
+
+Intsall Android Studio
+
+Start emulator:  /Users/jaffamonkey/Library/Android/sdk/tools/emulator -avd Nexus_5X_API_27_x86 -netdelay none -netspeed full

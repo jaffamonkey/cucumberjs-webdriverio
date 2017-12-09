@@ -43,7 +43,7 @@ exports.config = {
     // }],
 
     capabilities: [{
-        appiumVersion: '1.6.5',
+        appiumVersion: '1.7.1',
         automationName: 'Appium',
         platformName: 'Android',
         //platformVersion: '9.0',
@@ -118,7 +118,6 @@ exports.config = {
         snippets: true,     // <boolean> hide step definition snippets for pending steps
         format: ['pretty'], // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
         colors: true,       // <boolean> disable colors in formatter output
-        snippets: false,    // <boolean> hide step definition snippets for pending steps
         source: false,      // <boolean> hide source uris
         profile: [],        // <string[]> (name) specify the profile to use
         strict: true,       // <boolean> fail if there are any undefined or pending steps

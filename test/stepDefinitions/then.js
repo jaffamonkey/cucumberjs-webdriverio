@@ -1,4 +1,3 @@
-
 import { defineSupportCode } from 'cucumber';
 import yahooPage from '../pageobjects/yahoo-search.page';
 import myAccount from '../pageobjects/ta-myaccount.page';
