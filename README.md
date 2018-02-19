@@ -15,7 +15,7 @@ sudo n 6.10.2
 Then run the following from Terminal.
 
 cd /Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home
-sudo ln -s ./ jre`
+sudo ln -s ./ jre
 
 ## Installation
 
@@ -35,3 +35,15 @@ npm install
 ### Run mobile tests
 
 * npm run tests-mobile (mobile tests)
+
+
+### Run on real devices
+
+Appium iOS real device support depends on a central third-party software suite, libimobiledevice, which is easily installable with Homebrew:
+
+brew install libimobiledevice
+
+In addition to the dependency on libimobiledevice, Appium support for real devices running iOS 9.3 and above using Xcode 8+ also depends on ios-deploy, which is easily available through npm or Homebrew:
+
+npm install -g ios-deploy
+brew install ios-deploy
